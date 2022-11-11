@@ -1,0 +1,54 @@
+{
+    "name": "skoro/tkui",
+    "description": "Create desktop applications using Tk gui toolkit",
+    "keywords": [
+        "gui", "ui", "desktop", "toolkit", "tcltk", "tk", "widget"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleksii Skorobogatko",
+            "email": "skorobogatko.oleksii@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/skoro/php-tkui",
+        "issues": "https://github.com/skoro/php-tkui/issues"
+    },
+    "require": {
+        "php": ">=7.4",
+        "ext-ffi": "*",
+        "ext-spl": "*",
+        "psr/log": "^1.1",
+        "monolog/monolog": "^2.2",
+        "m1/env": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tkui\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.3",
+        "phpspec/prophecy": "^1.15"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tkui\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-f": "phpunit --filter",
+        "make-color-names": "@php make-color-names.php colors.txt > ./src/ColorNames.php",
+        "check": "phpstan",
+        "test-check": [
+            "@test",
+            "@check"
+        ],
+        "check-test": "@test-check"
+    }
+}
